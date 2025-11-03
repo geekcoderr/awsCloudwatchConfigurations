@@ -1,0 +1,57 @@
+{
+    "metrics": {
+        "namespace": "CustomMetrics/EC2",
+        "metrics_collected": {
+            "cpu": {
+                "measurement": [
+                    {
+                        "name": "cpu_usage_active",
+                        "rename": "CPU_Utilization",
+                        "unit": "Percent"
+                    }
+                ],
+                "metrics_collection_interval": 5,
+                "totalcpu": true
+            },
+            "mem": {
+                "measurement": [
+                    {
+                        "name": "mem_used_percent",
+                        "rename": "RAM_Utilization",
+                        "unit": "Percent"
+                    }
+                ],
+                "metrics_collection_interval": 5
+            },
+            "disk": {
+                "measurement": [
+                    {
+                        "name": "used_percent",
+                        "rename": "Storage_Utilization",
+                        "unit": "Percent"
+                    }
+                ],
+                "metrics_collection_interval": 5,
+                "resources": ["/"]
+            },
+            "net": {
+                "measurement": [
+                    {
+                        "name": "bytes_sent",
+                        "rename": "Network_BytesSent",
+                        "unit": "Bytes"
+                    },
+                    {
+                        "name": "bytes_recv",
+                        "rename": "Network_BytesReceived",
+                        "unit": "Bytes"
+                    }
+                ],
+                "metrics_collection_interval": 5,
+                "resources": ["*"]
+            }
+        },
+        "aggregation_dimensions": [["InstanceId"]],
+        "force_flush_interval": 5
+    }
+}
